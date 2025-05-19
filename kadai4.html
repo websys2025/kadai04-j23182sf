@@ -51,12 +51,12 @@
             const item_list = new Array(items.length);
             const btn = new Array(items.length);
 
-            // ⭐ 課題4-1 商品オブジェクトの生成 ⭐
+            //課題4-1 商品オブジェクトの生成
             for (let i = 0; i < items.length; i++) {
                 item_list[i] = new Item(items[i].name, items[i].price, items[i].stock);
             }
 
-            // ⭐ 課題4-2 商品表の作成 ⭐
+            //課題4-2 商品表の作成
             for (let i = 0; i < item_list.length; i++) {
                 itemArea.innerHTML += `<tr>
                     <td>${item_list[i].name}</td>
