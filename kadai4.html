@@ -37,11 +37,16 @@
                     console.log("");
                 }
 
+                // ⭐ 課題4-3：購入処理 ⭐
                 buyItem() {          
                     if (this.stock >= 1) { 
-                        console.log("商品番号: "+this.id+", 商品名: "+this.name+"を購入します。");
-                        // 課題4-3. ここにコードを書く
-                    } else console.log(this.name+"は商品の在庫がないため購入できません。");
+                        console.log(`商品番号: ${this.id}, 商品名: ${this.name}を購入します。`);
+                        this.stock--;
+                        document.getElementById(`stock${this.id}`).innerText = this.stock;
+                        console.log(`残りは${this.stock}個です。`);
+                    } else {
+                        console.log(`${this.name}は商品の在庫がないため購入できません。`);
+                    }
                 }
             }
 
@@ -66,7 +71,12 @@
                 </tr>`;
             }
 
-            // 課題4-3
+            //課題4-3 イベント設定
+            for (let i = 0; i < item_list.length; i++) {
+                document.getElementById(`button${item_list[i].id}`).onclick = () => {
+                    item_list[i].buyItem();
+                }
+            }
 
             Item.showItemList(item_list);
 
